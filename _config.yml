@@ -50,6 +50,9 @@ social-links:
 paginate: 10
 paginate_path: "/page:num/"
 
+# Posts
+future: true  # 미래 날짜 포스트도 표시
+
 # Permalink (URL 구조)
 permalink: /posts/:title/
 
