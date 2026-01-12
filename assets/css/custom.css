@@ -257,6 +257,7 @@ body {
     transition: background-color 0.2s;
     cursor: pointer;
     min-height: 2rem;
+    gap: 0.5rem;
 }
 
 .category-row:hover {
@@ -287,6 +288,10 @@ body {
     line-height: 1.5;
     display: flex;
     align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
 }
 
 .category-link:hover {
@@ -302,6 +307,7 @@ body {
     white-space: nowrap;
     display: flex;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .toggle-icon {
