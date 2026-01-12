@@ -38,6 +38,9 @@ social-links:
 paginate: 10
 paginate_path: "/page:num/"
 
+# Permalink (URL 구조)
+permalink: /posts/:title/
+
 # Markdown Settings
 markdown: kramdown
 highlighter: rouge
