@@ -5,15 +5,33 @@ url: "https://danielseol9250.github.io"
 baseurl: "/ait26"
 
 # Author
-author:
-  name: "Your Name"
-  email: "your.email@example.com"
+author: "Your Name"
+email: "your.email@example.com"
+github_username: "danielseol9250"
+
+# Social
+github: "danielseol9250"
+linkedin: ""
+twitter: ""
+email: "your.email@example.com"
 
 # Build Settings
-theme: minima
+remote_theme: daattali/beautiful-jekyll
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-remote-theme
+
+# Beautiful Jekyll Settings
+avatar: ""
+nav-links:
+  - name: "홈"
+    url: "/"
+  - name: "About"
+    url: "/about"
+social-links:
+  github: danielseol9250
+  email: your.email@example.com
 
 # Markdown Settings
 markdown: kramdown
