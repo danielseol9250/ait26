@@ -1,0 +1,79 @@
+---
+layout: default
+title: 알고리즘
+permalink: /categories/algorithm/
+---
+
+<div class="category-page">
+    <header class="page-header">
+        <a href="{{ '/categories/' | relative_url }}" class="back-link">← 모든 카테고리</a>
+        <h1 class="page-title">알고리즘</h1>
+        <p class="page-subtitle">알고리즘 관련 모든 포스트</p>
+    </header>
+
+    {% assign category_name = '알고리즘' %}
+    {% assign category_posts = site.posts | where_exp: "post", "post.categories contains category_name" | sort: 'date' | reverse %}
+
+    <p class="category-count">총 {{ category_posts.size }}개의 포스트</p>
+
+    <div class="posts-list">
+        {% for post in category_posts %}
+            <article class="post-card">
+                <a href="{{ post.url | relative_url }}" class="post-card-link">
+                    <h2 class="post-card-title">{{ post.title }}</h2>
+                </a>
+
+                <div class="post-card-meta">
+                    <time datetime="{{ post.date | date: '%Y-%m-%d' }}" class="post-card-date">
+                        {{ post.date | date: "%Y년 %m월 %d일" }}
+                    </time>
+                    {% if post.categories.size > 0 %}
+                        <div class="post-card-categories">
+                            {% for category in post.categories %}
+                                <a href="{{ '/categories/' | append: category | uri_escape | relative_url }}" class="category-badge">{{ category }}</a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {% if post.tags.size > 0 %}
+                        <div class="post-card-tags">
+                            {% for tag in post.tags %}
+                                <a href="{{ '/tags/' | append: tag | uri_escape | relative_url }}" class="tag-badge">{{ tag }}</a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                {% if post.description %}
+                    <p class="post-card-description">{{ post.description }}</p>
+                {% endif %}
+            </article>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+.back-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: #0056b3;
+}
+
+.category-count {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+.posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+</style>
