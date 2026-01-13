@@ -1,17 +1,17 @@
 ---
 layout: default
-title: 파이썬 강의
-permalink: /categories/파이썬 강의/
+title: 파이썬
+permalink: /categories/파이썬/
 ---
 
 <div class="category-page">
     <header class="page-header">
         <a href="{{ '/categories/' | relative_url }}" class="back-link">← 모든 카테고리</a>
-        <h1 class="page-title">파이썬 강의</h1>
-        <p class="page-subtitle">파이썬 강의 시리즈의 모든 포스트</p>
+        <h1 class="page-title">파이썬</h1>
+        <p class="page-subtitle">파이썬 공부 시리즈의 모든 포스트</p>
     </header>
     
-    {% assign category_name = '파이썬 강의' %}
+    {% assign category_name = '파이썬' %}
     {% assign category_posts = site.posts | where_exp: "post", "post.categories contains category_name" | sort: 'date' | reverse %}
     
     <p class="category-count">총 {{ category_posts.size }}개의 포스트</p>
