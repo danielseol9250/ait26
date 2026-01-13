@@ -27,7 +27,13 @@
     <section class="widget tags-widget">
         <h3 class="widget-title">인기 태그</h3>
         <div class="tag-cloud">
-            {% assign all_tags = site.posts | map: 'tags' | flatten | compact | uniq | sort_natural %}
+            {% assign all_tags_raw = site.posts | map: 'tags' | flatten | compact | uniq %}
+            {% assign all_tags = '' | split: '' %}
+            {% for tag in all_tags_raw %}
+                {% if tag != nil and tag != '' and tag != true and tag != false %}
+                    {% assign all_tags = all_tags | push: tag %}
+                {% endif %}
+            {% endfor %}
             {% for tag in all_tags limit: 20 %}
                 {% assign tag_posts = site.posts | where_exp: "post", "post.tags contains tag" %}
                 <a href="{{ '/tags/' | append: tag | relative_url }}" class="tag-cloud-item" data-count="{{ tag_posts.size }}">
