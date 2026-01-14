@@ -19,7 +19,7 @@ body {
 /* 컨테이너 래퍼 - 3컬럼 그리드 */
 .container-wrapper {
     display: grid;
-    grid-template-columns: 375px 1fr 300px;
+    grid-template-columns: 562px 1fr 300px;
     grid-template-areas: "sidebar-left main sidebar-right";
     gap: 2rem;
     max-width: 1600px;
@@ -893,7 +893,7 @@ body {
 /* 반응형 디자인 */
 @media (max-width: 1200px) {
     .container-wrapper {
-        grid-template-columns: 300px 1fr 250px;
+        grid-template-columns: 450px 1fr 250px;
         gap: 1.5rem;
         padding: 1.5rem;
     }
