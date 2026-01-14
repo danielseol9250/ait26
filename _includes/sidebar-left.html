@@ -158,6 +158,65 @@
                     </ul>
                 </li>
             </ul>
+            
+            <ul class="category-list">
+                {% assign top_level_celebrity = '유명인사' %}
+                {% assign celebrity_posts = site.categories[top_level_celebrity] | default: '' %}
+                {% if celebrity_posts == '' %}
+                    {% assign celebrity_posts = '' | split: '' %}
+                    {% for post in site.posts %}
+                        {% if post.categories contains top_level_celebrity %}
+                            {% assign celebrity_posts = celebrity_posts | push: post %}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                
+                <li class="category-item parent-category">
+                    <div class="category-row" data-category="유명인사">
+                        <svg class="category-icon folder-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 3.5C2 2.67157 2.67157 2 3.5 2H6.58579C6.98361 2 7.36514 2.15804 7.64645 2.43934L8.35355 3.14645C8.63486 3.42776 9.01639 3.58579 9.41421 3.58579H12.5C13.3284 3.58579 14 4.25722 14 5.08579V12.5C14 13.3284 13.3284 14 12.5 14H3.5C2.67157 14 2 13.3284 2 12.5V3.5Z" fill="currentColor"/>
+                        </svg>
+                        <a href="{{ '/categories/' | append: top_level_celebrity | uri_escape | relative_url }}" class="category-link">{{ top_level_celebrity }}</a>
+                        <span class="category-count">{{ celebrity_posts.size }}개</span>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    
+                    <ul class="subcategory-list">
+                        {% for category in site.categories %}
+                            {% assign cat_name = category[0] %}
+                            {% assign cat_posts = category[1] %}
+                            {% if cat_name != top_level_celebrity %}
+                                {% assign has_celebrity = false %}
+                                {% for post in cat_posts %}
+                                    {% if post.categories contains top_level_celebrity and post.categories contains cat_name %}
+                                        {% assign has_celebrity = true %}
+                                        {% break %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% if has_celebrity %}
+                                    {% assign final_posts = '' | split: '' %}
+                                    {% for post in cat_posts %}
+                                        {% if post.categories contains top_level_celebrity and post.categories contains cat_name %}
+                                            {% assign final_posts = final_posts | push: post %}
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% if final_posts.size > 0 %}
+                                        <li class="category-item subcategory-item">
+                                            <div class="category-row subcategory-row">
+                                                <svg class="category-icon file-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M4 2C3.44772 2 3 2.44772 3 3V13C3 13.5523 3.44772 14 4 14H12C12.5523 14 13 13.5523 13 13V5.41421C13 5.149 12.8946 4.89464 12.7071 4.70711L9.29289 1.29289C9.10536 1.10536 8.851 1 8.58579 1H4Z" fill="currentColor"/>
+                                                </svg>
+                                                <a href="{{ '/categories/' | append: cat_name | uri_escape | relative_url }}" class="category-link">{{ cat_name }}</a>
+                                                <span class="category-count">{{ final_posts.size }}개</span>
+                                            </div>
+                                        </li>
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
         </div>
         
         <script>
