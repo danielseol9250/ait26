@@ -71,6 +71,10 @@ permalink: /posts/:title/
 markdown: kramdown
 highlighter: rouge
 
+# Include static files (for ads.txt to be accessible at root)
+include:
+  - ads.txt
+
 # Exclude from processing
 exclude:
   - node_modules
