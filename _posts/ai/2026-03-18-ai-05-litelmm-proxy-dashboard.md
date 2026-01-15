@@ -55,7 +55,7 @@ http://localhost:4000/ui
 (포트는 설정에 따라 다를 수 있음)
 
 공식 문서 기준 Dashboard 안내 페이지:
-👉 https://docs.litellm.ai/docs/proxy/ui
+👉 [Dashboard 안내 페이지](https://docs.litellm.ai/docs/proxy/ui)
 
 이 URL 하나만 알아두면 된다.
 
