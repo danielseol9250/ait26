@@ -2,7 +2,7 @@
 layout: post
 title:  "매일 지구를 기록하는 회사, Planet Labs는 어떻게 성장하고 있을까?"
 date:   2026-01-20 09:00:00 +0900
-categories: [경제]
+categories: [경제, 일반]
 tags: [PlanetLabs, 위성, 지구관측, 스페이스테크, 데이터서비스]
 description: "매일 변화하는 지구를 기록하는 회사, 플래닛 랩스의 비즈니스 모델과 성장 전략"
 ---
